@@ -1,0 +1,9 @@
+﻿@using ShopBanSieuXe.Library
+
+@if (TempData.ContainsKey("XMessage"))
+{
+    MyMessage sms = (MyMessage)TempData["XMessage"];
+    <div class="alert alert-@sms.Type">
+        @sms.Msg
+    </div>
+}

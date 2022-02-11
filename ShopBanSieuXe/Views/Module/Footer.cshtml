@@ -1,0 +1,10 @@
+﻿
+@model IEnumerable<MyClass.Models.Post>
+@foreach (var item in Model)
+{
+    <ul>
+        <li><a href="@item.Slug">@item.Title</a></li>
+    </ul>
+}
+
+

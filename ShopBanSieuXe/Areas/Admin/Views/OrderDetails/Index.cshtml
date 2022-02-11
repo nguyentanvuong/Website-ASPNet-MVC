@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MyClass.Models.OrderDetail>
+@{
+    ViewBag.Title = "Đơn hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>DANH SÁCH ĐƠN HÀNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Trash","OrderDetails")"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Mã khách hàng </th>
+                                <th> Mã sản phẩm </th>
+                                <th> Giá </th>
+                                <th> Số lượng </th>
+                                <th> Tổng tiền </th>
+                                <th>Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OrderId)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.ProductId)
+                                    </td>
+                                    <td>
+                                        @item.Price.ToString("#,##0")
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Quantity)
+                                    </td>
+                                    <td>
+                                        @item.Amount.ToString("#,##0")
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-group-sm btn-danger" href="@Url.Action("Deltrash","OrderDetails",new { id = item.Id })">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

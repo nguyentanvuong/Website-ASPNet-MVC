@@ -1,0 +1,287 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet" />
+    <script src="~/Content/fontawesome-free-5.15.3-web/js/all.js"></script>
+    <!-- Bootstrap CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/bootstrap.min.css">
+    <!-- Fonts -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/fonts/line-icons.css">
+    <!--Morris Chart CSS -->
+    <link rel="stylesheet" href="~/Content/assets/plugins/morris/morris.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/main.css">
+    <!-- Responsive Style -->
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/responsive.css">
+
+</head>
+
+<body>
+    <div class="app header-default side-nav-dark">
+        <div class="layout">
+            <!-- Header START -->
+            <div class="header navbar">
+                <div class="header-container">
+                    <div class="nav-logo">
+                        <a href="/admin">
+                            <b><img src="~/Content/assets/img/logo.png" alt=""></b>
+                            <span class="logo">
+                                <img src="~/Content/assets/img/logo-text.png" alt="">
+                            </span>
+                        </a>
+                    </div>
+                    <ul class="nav-left">
+                        <li>
+                            <a class="sidenav-fold-toggler" href="javascript:void(0);">
+                                <i class="lni-menu"></i>
+                            </a>
+                            <a class="sidenav-expand-toggler" href="javascript:void(0);">
+                                <i class="lni-menu"></i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav-right">
+                        <li class="search-box">
+                            <input class="form-control" type="text" placeholder="Tiềm kiếm">
+                            <i class="lni-search"></i>
+                        </li>
+                        <li class="massages dropdown dropdown-animated scale-left">
+                            <ul class="dropdown-menu dropdown-lg">
+                                
+                                
+                            </ul>
+                        </li>
+                        <li class="notifications dropdown dropdown-animated scale-left">
+                            
+                        </li>
+                        <li class="user-profile dropdown dropdown-animated scale-left">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <img class="profile-img img-fluid" src="~/Content/assets/img/avatar/avatar.jpg" alt="">
+                            </a>
+                            <ul class="dropdown-menu dropdown-md">
+                                <li>
+                                    <ul class="list-media">
+                                        <li class="list-item avatar-info">
+                                            <div class="media-img">
+                                                <img src="~/Content/assets/img/avatar/avatar.jpg" alt="">
+                                            </div>
+                                            <div class="info">
+                                                <span class="title text-semibold">Quảng trị viên</span>
+                                                <span class="sub-title">UI/UX Desinger</span>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li role="separator" class="divider"></li>
+                                <li>
+                                    <a href="">
+                                        <i class="lni-lock"></i>
+                                        <span>Logout</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Header END -->
+            <!-- Side Nav START -->
+            <div class="side-nav expand-lg">
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu">
+                        <li class="side-nav-header">
+                            <span>TRANG HỆ THỐNG</span>
+                        </li>
+                        <li class="nav-item dropdown open">
+                            <a href="#" class="dropdown-toggle">
+                                <span class="icon-holder">
+                                    <i class="lni-dashboard"></i>
+                                </span>
+                                <span class="title">Sản phẩm</span>
+                                <span class="arrow">
+                                    <i class="lni-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu sub-down">
+                                <li class="">@*badge*@
+                                    <a href="@Url.Action("Index", "Products")">Danh sách sản phẩm</a>
+                                </li>
+                                <li>                                  
+                                    <a href="@Url.Action("Index", "Category")">Loại sản phẩm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="icon-holder">
+                                    <i class="lni-cloud"></i>
+                                </span>
+                                <span class="title">Bài viết</span>
+                                <span class="arrow">
+                                    <i class="lni-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu sub-down">
+                                <li>
+                                    <a href="@Url.Action("Index", "Posts")">Danh sách bài viết</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Topics")">Chủ đề bài viết</a>
+                                </li>
+                                <li>
+                                    <a href="#">Trang đơn</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="">
+                            <a class="dropdown-toggle" href="@Url.Action("Index", "Orders")">
+                                <span class="icon-holder">
+                                    <i class="lni-layers"></i>
+                                </span>
+                                <span class="title">Khách hàng</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="@Url.Action("Index", "OrderDetails")">
+                                <span class="icon-holder">
+                                    <i class="lni-layers"></i>
+                                </span>
+                                <span class="title">Đơn hàng</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="@Url.Action("Index", "Contacts")">
+                                <span class="icon-holder">
+                                    <i class="lni-layers"></i>
+                                </span>
+                                <span class="title">Liên hệ</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="icon-holder">
+                                    <i class="lni-cloud"></i>
+                                </span>
+                                <span class="title">Giao diện</span>
+                                <span class="arrow">
+                                    <i class="lni-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu sub-down">
+                                <li>
+                                    <a href="@Url.Action("Index", "Menus")">Menu</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("Index", "Sliders")">Slider</a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="icon-holder">
+                                    <i class="lni-timer"></i>
+                                </span>
+                                <span class="title">Hệ thống</span>
+                                <span class="arrow">
+                                    <i class="lni-chevron-right"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu sub-down">
+                                <li>
+                                    <a href="@Url.Action("Index", "Users")">Thành viên</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="side-nav-header">
+                            <span>THÔNG TIN</span>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="#">
+                                <span class="icon-holder">
+                                    <i class="lni-layers"></i>
+                                </span>
+                                <span class="title">Thông tin cá nhân</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="~/Admin/logout">
+                                <span class="icon-holder">
+                                    <i class="lni-layers"></i>
+                                </span>
+                                <span class="title">Đăng xuất</span>
+                            </a>
+                        </li>
+                    </ul>
+                    <li class="nav-item dropdown">
+                        <a class="dropdown-toggle" href="#">
+                            <span class="icon-holder">
+                                <i class="lni-map-marker"></i>
+                            </span>
+                            <span class="title">Map</span>
+                            <span class="arrow">
+                                <i class="lni-chevron-right"></i>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu sub-down">
+                            <li>
+                                <a href="google-map.html">Google Map</a>
+                            </li>
+                            <li>
+                                <span class="badge badge-primary badge-pro float-right">Pro</span>
+                                <a href="vector-map.html">Vector Map</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <span class="badge badge-primary badge-pro float-right">Pro</span>
+                        <a class="" href="#">
+                            <span class="icon-holder">
+                                <i class="lni-files"></i>
+                            </span>
+                            <span class="title">Pages</span>
+                        </a>
+                    </li>
+                </div>
+            </div>           
+            <!-- Footer START -->
+            <footer class="content-footer">
+                <div class="footer">
+                    <div class="copyright">
+                        <span>Copyright © 2018 <b class="text-dark">UIdeck</b>. All Right Reserved</span>
+                        <span class="go-right">
+                            <a href="" class="text-gray">Term &amp; Conditions</a>
+                            <a href="" class="text-gray">Privacy &amp; Policy</a>
+                        </span>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer END -->
+
+        </div>
+        <!-- Page Container END -->
+    </div>
+    @RenderBody()
+    <!-- Preloader -->
+    <!-- End Preloader -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/Content/js/jquery-3.0.0.slim.js"></script>
+    <script src="~/Content/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/jquery-min.js"></script>
+    <script src="~/Content/assets/js/popper.min.js"></script>
+    <script src="~/Content/assets/js/bootstrap.min.js"></script>
+    <script src="~/Content/assets/js/jquery.app.js"></script>
+    <script src="~/Content/assets/js/main.js"></script>
+
+    <!--Morris Chart-->
+    <script src="~/Content/assets/plugins/morris/morris.min.js"></script>
+    <script src="~/Content/assets/plugins/raphael/raphael-min.js"></script>
+    <script src="~/Content/assets/js/dashborad1.js"></script>
+
+</body>
+</html>

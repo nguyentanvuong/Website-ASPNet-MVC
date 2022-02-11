@@ -1,0 +1,133 @@
+﻿@model ShopBanSieuXe.Models.RegisterModel
+
+@{
+    ViewBag.Title = "Đăng ký";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .container__register__center{
+        display: flex;
+        justify-content:center;
+        
+    }
+    .form-horizontal {
+        width: 400px;
+        height: 695px;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        padding-top:10px;
+        margin-bottom:30px;
+    }
+    .form-horizontal__color {
+        display: block;
+        color: springgreen;
+        font-weight: 700;
+        font-size: 30px;
+        text-align:center;
+    }
+    .form-horizontal__register{
+        
+    }
+    .form-group {
+        display: block;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    .form-group__textbox{
+        display:block;
+    }
+    .form-group__textbox input {
+        width:100%;
+        background-color: #eafeff;
+        overflow: hidden;
+        border-radius: 5px;
+        height: 40%;
+        border-style: none;
+        border: 2px solid springgreen;
+        padding: 5px;
+    }
+    .text-danger {
+        display: block;
+    }
+    .form-horizontal_message ul li {
+        text-decoration:none;
+        list-style-type:none;
+    }                  
+    .col-md-offset-2 input{
+        border:none;
+    }
+    .primary-btn__register{
+        display:block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<div class="container">
+    <div class="container__register__center">
+        @using (Html.BeginForm("Register", "User", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <h4 class="form-horizontal__color">Đăng ký</h4>
+            <hr />
+            <div class="form-horizontal__register">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.FullName, htmlAttributes: new { @class = "control-label" })
+                    <div class="form-group__textbox">
+                        @Html.TextBoxFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control form-control__input" } })
+                        @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>   
+            <div class="form-horizontal__register">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group__textbox">
+                        @Html.TextBoxFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PassWord, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group__textbox">
+                        @Html.PasswordFor(model => model.PassWord, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PassWord, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ConfirmPassWord, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group__textbox">
+                        @Html.PasswordFor(model => model.ConfirmPassWord, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ConfirmPassWord, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group__textbox">
+                        @Html.TextBoxFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Phone, htmlAttributes: new { @class = "control-label " })
+                    <div class="form-group__textbox">
+                        @Html.TextBoxFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger form-horizontal_message" })
+                <div class="form-group">
+                    <div class="col-md-offset-2 ">
+                        <input type="submit" value="Đăng ký" class="primary-btn cart-btn primary-btn__register" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>   
+</div>

@@ -1,0 +1,12 @@
+﻿@model IEnumerable<MyClass.Models.Topic>
+@{
+    ViewBag.Title = "PostTopic";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@foreach (var item in Model)
+{
+    <div class="">
+        <a href="@item.Slug">@item.Name</a>
+    </div>
+}

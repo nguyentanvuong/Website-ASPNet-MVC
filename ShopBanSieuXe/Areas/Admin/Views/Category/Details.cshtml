@@ -1,0 +1,107 @@
+﻿@model MyClass.Models.Category
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Category</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Slug)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Slug)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ParentId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ParentId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Oders)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Oders)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Metakey)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metakey)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Metadesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Metadesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Created_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Created_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_by)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_by)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Updated_at)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Updated_at)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

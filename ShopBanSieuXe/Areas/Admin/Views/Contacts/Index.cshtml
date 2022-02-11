@@ -1,0 +1,65 @@
+﻿@model IEnumerable<MyClass.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>TẤT CẢ LIÊN HỆ</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Họ và tên</th>
+                                <th>Email</th>
+                                <th> Số điện thoại </th>
+                                <th>Tiêu đề liên hệ</th>
+                                <th>Trạng thái</th>
+                                <th>Chức năng</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.FullName</td>
+                                    <td>@item.Email</td>
+                                    <td>@item.Phone</td>
+                                    <td>@item.Title</td>
+                                    <td>
+                                        <a class="btn btn-group-sm" href="@Url.Action("Status","Contacts",new { id = item.Id })">
+                                            <span class="badge badge-success">Chưa trả lời</span>
+                                        </a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-group-sm btn-info " href="@Url.Action("Edit","Contacts",new { id = item.Id })">
+                                            <i class="fas fa-edit"></i>Trả lời
+                                        </a>
+                                    </td>
+                                    <td>@item.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

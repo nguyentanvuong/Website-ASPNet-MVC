@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewBag.Title = "Trang Chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="hero">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="hero__categories">
+                    @Html.Action("ListCategory", "Module")
+                </div>
+            </div>
+            <div class="col-lg-9">
+                @Html.Action("SlideShow", "Module")
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Action("FeaturedProduct", "Module")
+
+@Html.Action("Banner", "Module")
+
+<section class="latest-product spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sản Phẩm Mới Nhất</h4>
+                    @Html.Action("NewProduct", "Module")
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sản Phẩm Hot</h4>
+                    @Html.Action("ProductHot", "Module")
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="latest-product__text">
+                    <h4>Sản Phẩm Bán Chạy</h4>
+                    @Html.Action("SellingProduct", "Module")
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@Html.Action("Blog", "Module")

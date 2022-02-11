@@ -1,0 +1,15 @@
+D:\NguyenTanVuong_DA_TTTN\MyClass\obj\Debug\MyClass.csproj.CoreCompileInputs.cache
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\MyClass.dll.config
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\MyClass.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\MyClass.pdb
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\EntityFramework.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\EntityFramework.SqlServer.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\PagedList.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\PagedList.Mvc.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\EntityFramework.xml
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\EntityFramework.SqlServer.xml
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\PagedList.xml
+D:\NguyenTanVuong_DA_TTTN\MyClass\bin\Debug\PagedList.Mvc.xml
+D:\NguyenTanVuong_DA_TTTN\MyClass\obj\Debug\MyClass.dll
+D:\NguyenTanVuong_DA_TTTN\MyClass\obj\Debug\MyClass.pdb
+D:\NguyenTanVuong_DA_TTTN\MyClass\obj\Debug\MyClass.csproj.AssemblyReference.cache

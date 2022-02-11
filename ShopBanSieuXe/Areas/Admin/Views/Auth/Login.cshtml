@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <title>Login</title>
+    <style>
+        .khung {
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 150px;
+            padding-top: 1px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        <div class="khung mt-md-5 p-2">
+            <h3 class="text-center text-success">ĐĂNG NHẬP</h3>
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="~/Content/img/logo.png" alt="Cinque Terre" width="119" height="50" />
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Tên đăng nhập</label>
+                        <input class="form-control" name="username" required type="text" placeholder="Tên đăng nhập hoặc email" />
+                    </div>
+                    <div class="form-group">
+                        <label>Mật khẩu</label>
+                        <input class="form-control" name="password" required type="password" placeholder="Mật khẩu" />
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-success">Đăng nhập</button>
+                    </div>
+                    <div class="form-group">
+                        @Html.Raw(ViewBag.StrError)
+                        @*@ViewBag.StrError*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>
+

@@ -1,0 +1,94 @@
+﻿@model MyClass.Models.Contact
+@{
+    ViewBag.Title = "liên hệ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="contact spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_phone"></span>
+                    <h4>Số điện thoại</h4>
+                    <p>0388229476</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_pin_alt"></span>
+                    <h4>Địa chỉ</h4>
+                    <p>Quận 9, Tp. Hồ Chí Minh</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_clock_alt"></span>
+                    <h4>Thời gian mở cửa</h4>
+                    <p>10 Am => 23 Pm</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-6 text-center">
+                <div class="contact__widget">
+                    <span class="icon_mail_alt"></span>
+                    <h4>Email</h4>
+                    <p>nguyentanvuongqn2000@gmail.com</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section End -->
+<!-- Map Begin -->
+<div class="map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15674.336659051374!2d106.78710861652186!3d10.843100751115106!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175273ddcc91d09%3A0x2f8405032ede86e2!2zVMSDbmcgTmjGoW4gUGjDuiBBLCBRdeG6rW4gOSwgVGjDoG5oIHBo4buRIEjhu5MgQ2jDrSBNaW5oLCBWaeG7h3QgTmFt!5e0!3m2!1svi!2s!4v1633534235997!5m2!1svi!2s"
+            width="600"
+            height="450"
+            style="border:0;"
+            allowfullscreen="" loading="lazy">
+    </iframe>
+    <div class="map-inside">
+        <i class="icon_pin"></i>
+        <div class="inside-widget">
+            <h4>Quận 9, Tp.Hồ Chí Minh</h4>
+            <ul>
+                <li>Phone: 0388229476</li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Map End -->
+<!-- Contact Form Begin -->
+<div class="contact-form spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="contact__form__title">
+                    <h2>Để lại lời nhắn</h2>
+                </div>
+            </div>
+        </div>
+        <form>
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" id="fullname" placeholder="Tên của bạn">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" id="email" placeholder="Mail của bạn">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" id="phone" placeholder="Số điện thoại của bạn">
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <input type="text" id="title" placeholder="Tiêu đề của bạn">
+                </div>
+                <div class="col-lg-12 text-center">
+                    <textarea id="detail" placeholder="Nội dung của bạn"></textarea>
+                    <button id="btnSend" type="submit" class="site-btn">GIỬ</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

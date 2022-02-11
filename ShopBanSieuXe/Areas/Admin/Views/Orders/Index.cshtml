@@ -1,0 +1,79 @@
+﻿@model IEnumerable<MyClass.Models.Order>
+@{
+    ViewBag.Title = "Khách hàng";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>DANH SÁCH KHÁCH HÀNG</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Trash","Orders")"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th> Tên khách hàng </th>
+                                <th> Email </th>
+                                <th> Số điện thoại </th>
+                                <th> Địa chỉ </th>
+                                <th> Ngày đặt hàng </th>
+                                <th> Trạng thái </th>
+                                <th>Chức năng</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Deliveryname</td>
+                                    <td>@item.Deliveryemail</td>
+                                    <td>@item.Deliveryphone</td>
+                                    <td>@item.Deliveryaddress</td>
+                                    <td>@item.CreatedDate</td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <a class="btn btn-group-sm" href="@Url.Action("Status","Orders",new { id = item.Id })">
+                                                <span class="badge badge-danger">Mới đặt hàng</span>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-group-sm" href="@Url.Action("Status","Orders",new { id = item.Id })">
+                                                <span class="badge badge-success">Đã giao hàng</span>
+                                            </a>
+                                        }
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-group-sm btn-info" href="@Url.Action("Edit","Orders",new { id = item.Id })">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-group-sm btn-danger" href="@Url.Action("Deltrash","Orders",new { id = item.Id })">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td>@item.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

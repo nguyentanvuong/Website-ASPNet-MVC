@@ -1,0 +1,85 @@
+﻿@model IEnumerable<MyClass.Models.Slider>
+
+@{
+    ViewBag.Title = "Danh sách Sliders";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>DANH SÁCH SLIDERS</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Create","Sliders")"><i class="fas fa-plus"></i>Thêm</a>
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Trash","Sliders")"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                        @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:50px">Hình</th>
+                                <th style="width:100px">Tên</th>
+                                <th style="width:100px">Link</th>
+                                <th style="width:100px">Position</th>
+                                <th style="width:100px">Chức năng</th>
+                                <th style="width:10px">ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/slider/@item.Img" class="img-fluid" alt="img" />
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Link)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Position)
+                                    </td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <a class="btn btn-group-sm btn-success" href="@Url.Action("Status","Sliders",new { id = item.Id })">
+                                                <i class="fas fa-toggle-on"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-group-sm btn-danger" href="@Url.Action("Status","Sliders",new { id = item.Id })">
+                                                <i class="fas fa-toggle-off"></i>
+                                            </a>
+                                        }
+                                        <a class="btn btn-group-sm btn-info" href="@Url.Action("Edit","Sliders",new { id = item.Id })">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-group-sm btn-danger" href="@Url.Action("Deltrash","Sliders",new { id = item.Id })">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td>@item.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+

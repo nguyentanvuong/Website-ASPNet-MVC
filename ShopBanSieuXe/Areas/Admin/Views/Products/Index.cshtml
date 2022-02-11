@@ -1,0 +1,94 @@
+﻿@model IEnumerable<MyClass.Models.Product>
+
+@{
+    ViewBag.Title = "Danh sách sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>DANH SÁCH SẢN PHẨM</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Create","Products")"><i class="fas fa-plus"></i>Thêm</a>
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Trash","Products")"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:50px">Hình</th>
+                                <th style="width:100px">Tên sản phẩm</th>
+                                <th style="width:100px">Loại sản phẩm</th>
+                                <th style="width:10px">Số lượng</th>
+                                <th style="width:50px">Giá</th>
+                                <th style="width:100px">Sản phẩm Hot</th>
+                                <th style="width:100px">Sản phẩm mới</th>
+                                <th style="width:100px">Sản phẩm đặc sắt</th>
+                                <th style="width:100px">Chức năng</th>
+                                <th style="width:10px">ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="~/Content/img/product/@item.Img" class="img-fluid" alt="img"/>
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @item.CatId
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Number)
+                                    </td>
+                                    <td>
+                                        @item.Price.ToString("#,##0")<span>đ</span>
+                                    </td>
+                                    <td>@item.TopHot</td>
+                                    <td>@item.TopNew</td>
+                                    <td>@item.Featured</td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <a class="btn btn-group-sm btn-success" href="@Url.Action("Status","Products",new { id = item.Id })">
+                                                <i class="fas fa-toggle-on"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-group-sm btn-danger" href="@Url.Action("Status","Products",new { id = item.Id })">
+                                                <i class="fas fa-toggle-off"></i>
+                                            </a>
+                                        }
+                                        <a class="btn btn-group-sm btn-info" href="@Url.Action("Edit","Products",new { id = item.Id })">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-group-sm btn-danger" href="@Url.Action("Deltrash","Products",new { id = item.Id })">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td>@item.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+
+        

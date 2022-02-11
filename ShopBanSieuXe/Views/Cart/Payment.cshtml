@@ -1,0 +1,61 @@
+﻿@model List<ShopBanSieuXe.Models.CartItem>
+@{
+    ViewBag.Title = "Thanh toán";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Shoping Cart Section End -->
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Chi tiết thanh toán</h4>
+            <form action="~/Cart/Payment" method="post">
+                <div class="row">
+
+                    <div class="col-lg-7 col-md-6">
+                        @*@using (Html.BeginForm("Payment", "Cart", FormMethod.Post))
+                {*@
+                        <div class="checkout__input">
+                            <p>Người nhận<span>*</span></p>
+                            <input name="name" type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Địa chỉ<span>*</span></p>
+                            <input name="adderss" type="text" >
+                        </div>
+                        <div class="checkout__input">
+                            <p>Số điện thoại<span>*</span></p>
+                            <input name="phone" type="text">
+                        </div>
+                        <div class="checkout__input">
+                            <p>Email<span>*</span></p>
+                            <input name="email" type="email">
+                        </div>
+                        @*<button type="submit" class="site-btn">ĐẶT HÀNG</button>*@
+
+                        @*}*@
+                    </div>
+                    @if (Model.Count > 0)
+                    {
+                        <div class="col-lg-5 col-md-6">
+                            <div class="checkout__order">
+                                <h4>Đơn hàng của bạn</h4>
+                                <div class="checkout__order__products">Sản Phẩm <span>Giá</span> <span style="margin-right:98px">số lượng</span> </div>
+                                <ul>
+                                    @foreach (var item in Model)
+                                    {
+                                        <li>@item.Product.Name  <span>@((item.Product.Price * item.Quantity).ToString("#,##0")) đ</span> <span style="margin-right:63px">@item.Quantity</span></li>
+                                    }
+                                </ul>
+                                <div class="checkout__order__total">Tổng tiền <span>@Model.Sum(m => m.Quantity * m.Product.Price).ToString("#,##0") đ</span></div>
+
+                                <button type="submit" class="site-btn">ĐẶT HÀNG</button>
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,19 @@
+﻿
+@model IEnumerable<MyClass.Models.Product>
+<div class="latest-product__slider owl-carousel">
+    <div class="latest-prdouct__slider__item">
+        @foreach (var item in Model)
+        {
+            <a href="~/@item.Slug" class="latest-product__item">
+                <div class="latest-product__item__pic">
+                    <img src="/Content/img/product/@item.Img" alt="">
+                </div>
+                <div class="latest-product__item__text">
+                    <h6>@item.Name</h6>
+                    <span>@item.Price.ToString("#,##0")đ</span>
+                </div>
+            </a>
+        }
+    </div>
+</div>
+

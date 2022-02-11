@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MyClass.Models.Category>
+@*<div class="hero__categories">
+        <div class="hero__categories__all">
+            <i class="fa fa-bars"></i>
+            <span>TẤT CẢ DANH MỤC</span>
+        </div>
+
+    </div>*@
+<ul>
+    @foreach (var item in Model)
+    {
+        <li><a href="@item.Slug">@item.Name</a></li>
+    }
+</ul>
+

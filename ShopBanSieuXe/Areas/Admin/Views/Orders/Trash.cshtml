@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MyClass.Models.Order>
+@{
+    ViewBag.Title = "Thùng rác";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>THÙNG RÁC</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-info" href="@Url.Action("Index","Orders")"><i class="fas fa-backward"></i>Trở lại</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered table-striped">
+                        <tr>
+                            <th> Tên khách hàng </th>
+                            <th> Email </th>
+                            <th> Số điện thoại </th>
+                            <th> Địa chỉ </th>
+                            <th> Ngày đặt hàng </th>
+                            <th>Chức năng</th>
+                            <th>ID</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.Deliveryname</td>
+                                <td>@item.Deliveryemail</td>
+                                <td>@item.Deliveryphone</td>
+                                <td>@item.Deliveryaddress</td>
+                                <td>@item.CreatedDate</td>
+                                <td>
+                                    <a class="btn btn-group-sm btn-info" href="@Url.Action("Retrash","Orders",new { id = item.Id })">
+                                        <i class="fas fa-undo-alt"></i>
+                                    </a>
+                                    <a class="btn btn-group-sm btn-danger" href="@Url.Action("Delete","Orders",new { id = item.Id })">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    @item.Id
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+

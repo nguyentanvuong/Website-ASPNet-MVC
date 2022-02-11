@@ -1,0 +1,78 @@
+﻿@model PagedList.IPagedList<MyClass.Models.Product>
+@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .notproduct_icon {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .notproduct_text {
+        text-align: center;
+        color: transparent;
+        text-shadow: 0 0 1px rgb(203 194 36);
+        text-align-last: center;
+        display: block;
+        font-size: 25px;
+        font-style: italic;
+        font-family: 'FontAwesome';
+        font-weight: 900
+    }
+
+    .cart-btn-inthestreet {
+        margin-left: 255px;
+    }
+</style>
+<section class="product spad">
+    @if (Model.Count > 0)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-5">
+                </div>
+                <div class="col-lg-9 col-md-7">
+                    <div class="product__discount">
+                        <div class="section-title product__discount__title">
+                            <h2>Kết Quả Tìm Kiếm</h2>
+                        </div>
+                        <div class="row">
+                            @foreach (var item in Model)
+                            {
+                                <div class="col-lg-4 col-md-6 col-sm-6">
+                                    <div class="product__item">
+                                        <div class="product__item__pic set-bg" data-setbg="Content/img/product/@item.Img">
+                                            <ul class="product__item__pic__hover">
+                                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                                                <li><a href="@item.Slug"><i class="fa fa-retweet"></i></a></li>
+                                                <li><a href="/them-gio-hang?productId=@item.Id&quantity=1"><i class="fa fa-shopping-cart"></i></a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="product__item__text">
+                                            <h6><a href="@item.Slug">@item.Name</a></h6>
+                                            <h5>@item.Price.ToString("#,##0")<span>đ</span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="product__pagination">
+                        @*<i class="fa fa-long-arrow-right"></i>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <img class="notproduct_icon" src="~/Content/img/icon/timkiem.png" alt="" />
+        <span class="notproduct_text">Không tìm thấy kết quả nào</span>
+    }
+</section>
+
+

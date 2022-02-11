@@ -1,0 +1,122 @@
+﻿@model List<ShopBanSieuXe.Models.CartItem>
+@{
+    ViewBag.Title = "gio-hang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .notproduct_icon {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .notproduct_text {
+        text-align: center;
+        color: transparent;
+        text-shadow: 0 0 1px rgb(203 194 36);
+        text-align-last: center;
+        display: block;
+        font-size: 25px;
+        font-style: italic;
+        font-family: 'FontAwesome';
+        font-weight: 900
+    }
+
+    .cart-btn-inthestreet {
+        margin-left: 255px;
+    }
+</style>
+
+<!-- Shoping Cart Section Begin -->
+<section class="shoping-cart spad">
+    @if (Model.Count > 0)
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th class="shoping__product">Sản Phẩm</th>
+                                    <th>Giá</th>
+                                    <th>Số Lượng</th>
+                                    <th>Tiền</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td class="shoping__cart__item">
+                                            <img height="100" width="100" src="~/Content/img/product/@item.Product.Img" alt="">
+                                            <h5>@item.Product.Name</h5>
+                                        </td>
+                                        <td class="shoping__cart__price">
+                                            @item.Product.Price.ToString("#,##0")
+                                        </td>
+                                        <td class="shoping__cart__quantity">
+                                            <div class="quantity">
+                                                <div class="pro-qty">
+                                                    <input type="text" class="txtquantity" data-id="@item.Product.Id" value="@item.Quantity">
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="shoping__cart__total">
+                                            @((item.Product.Price * item.Quantity).ToString("#,##0"))
+                                        </td>
+                                        <td class="shoping__cart__item__close" id="btnDelete" data-id="@item.Product.Id">
+                                            <span class="icon_close"></span>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="shoping__cart__btns">
+                        <a href="/" id="btnContinue" class="primary-btn cart-btn">Tiếp Tục Mua Hàng</a>
+                        <a href="" id="btnDeleteAll" class="primary-btn cart-btn cart-btn-inthestreet">Xóa giỏ hàng</a>
+                        <a href="" id="btnUpdate" class="primary-btn cart-btn cart-btn-right">
+                            <span class="icon_loading"></span>
+                            Cập Nhật Giỏ Hàng
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__continue">
+                        <div class="shoping__discount">
+                            <h5>Mã giảm giá</h5>
+                            <form action="#">
+                                <input type="text" placeholder="Nhập mã giảm giá">
+                                <button type="submit" class="site-btn">Phiếu giảm giá</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="shoping__checkout">
+                        <h5>Tổng Tiền</h5>
+                        <ul>
+                            <li>Thành tiền <span>@Model.Sum(m=>m.Quantity * m.Product.Price).ToString("#,##0") đ</span></li>
+                        </ul>
+                        <a href="" id="btnThanhToan" class="primary-btn">Thanh Toán</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+    else
+    {
+        <img class="notproduct_icon" src="~/Content/img/icon/nocart.png" alt="" />
+        <span class="notproduct_text">Chưa có sản phản trong giỏ hàng</span>
+    }
+</section>
+<!-- Shoping Cart Section End -->

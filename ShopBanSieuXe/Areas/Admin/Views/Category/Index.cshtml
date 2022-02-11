@@ -1,0 +1,78 @@
+﻿@model IEnumerable<MyClass.Models.Category>
+
+@{
+    ViewBag.Title = "Danh sách loại sản phẩm";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row">
+    <div style="width:250px" class="col-2">
+    </div>
+    <div class="content-wrapper col">
+        <section class="content">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-md-6 text-danger text-uppercase">
+                            <strong>DANH SÁCH LOẠI SẢN PHẨM</strong>
+                        </div>
+                        <div class="col-md-6 text-right">
+                            <a class="btn btn-sm btn-success" href="@Url.Action("Create","Category")"><i class="fas fa-plus"></i>Thêm</a>
+                            <a class="btn btn-sm btn-danger" href="@Url.Action("Trash","Category")"><i class="fas fa-trash-alt"></i>Thùng rác</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    @Html.Partial("_XMessage")
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:100px">Tên loại sản phẩm</th>
+                                <th style="width:100px">Slug</th>
+                                <th style="width:100px">Chức năng</th>
+                                <th style="width:10px">ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Slug)
+                                    </td>
+                                    <td>
+                                        @if (item.Status == 1)
+                                        {
+                                            <a class="btn btn-group-sm btn-success" href="@Url.Action("Status","Category",new { id = item.Id })">
+                                                <i class="fas fa-toggle-on"></i>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a class="btn btn-group-sm btn-danger" href="@Url.Action("Status","Category",new { id = item.Id })">
+                                                <i class="fas fa-toggle-off"></i>
+                                            </a>
+                                        }
+                                        <a class="btn btn-group-sm btn-info" href="@Url.Action("Edit","Category",new { id = item.Id })">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-group-sm btn-danger" href="@Url.Action("Deltrash","Category",new { id = item.Id })">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                    </td>
+                                    <td>@item.Id</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+</div>
+
+

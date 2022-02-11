@@ -1,0 +1,18 @@
+﻿@model MyClass.Models.Post
+@{
+    ViewBag.Title = Model.Slug;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <img class="img-fluid" style="margin:auto" alt="" src="~/Content/img/blog/@Model.Img" />
+    </div>
+    <div class="row">
+        <h4>@Model.Title</h4>
+    </div>
+    <div class="row">
+        <a class="">@Model.Detail</a>
+    </div>
+</div>
+
